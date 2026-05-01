@@ -1,364 +1,481 @@
 export default function Home() {
   return (
-    <main style={page}>
+    <main className="home-page">
+      <style>{styles}</style>
 
-      {/* ── Navigation ─────────────────────────────────────────────────────── */}
-      <nav style={nav}>
-        <a href="/" style={logoStyle}>Michael Ibonye</a>
-        <div style={navLinks}>
-          <a style={navLink} href="/about">About</a>
-          <a style={navLink} href="/experience">Experience</a>
-          <a style={navLink} href="/work">Case Studies</a>
-          <a style={navLink} href="/contact">Contact</a>
+      <nav className="nav">
+        <a href="/" className="logo">Michael Ibonye</a>
+        <div className="nav-links">
+          <a href="/about">About</a>
+          <a href="/experience">Experience</a>
+          <a href="/work">Case Studies</a>
+          <a href="/contact">Contact</a>
         </div>
       </nav>
 
-      {/* ── Hero ───────────────────────────────────────────────────────────── */}
-      <section style={hero}>
-        <div>
-          <p style={eyebrow}>Strategy &amp; Transformation</p>
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">Strategy &amp; Transformation</p>
 
-          <h1 style={headline}>
+          <h1>
             Helping organizations turn strategic ambition into measurable impact.
           </h1>
 
-          <div style={proofPoints}>
-            <p style={proofLine}>
-              <span style={proofMetric}>$18.5M</span> in sustainable cost savings delivered at MTN.
-            </p>
-            <p style={proofLine}>
-              <span style={proofMetric}>M&amp;A carve-out governance</span> on a multibillion-dollar deal at EY-Parthenon.
-            </p>
-            <p style={proofLine}>
-              <span style={proofMetric}>A decade</span> of strategy across Africa and the United States.
-            </p>
+          <div className="proof-points">
+            <p><strong>$18.5M</strong> in sustainable cost savings delivered at MTN.</p>
+            <p><strong>M&amp;A carve-out governance</strong> on a multibillion-dollar deal at EY-Parthenon.</p>
+            <p><strong>A decade</strong> of strategy across Africa and the United States.</p>
           </div>
 
-          <div style={buttonRow}>
-            <a href="/work" style={primaryButton}>View Selected Work</a>
-            <a href="/experience" style={secondaryButton}>Explore Experience</a>
+          <div className="button-row">
+            <a href="/work" className="primary-button">View Selected Work</a>
+            <a href="/experience" className="secondary-button">Explore Experience</a>
           </div>
         </div>
 
-        <div style={photoWrap}>
+        <div className="photo-wrap">
           <img
             src="/michael-ibonye-headshot.png"
             alt="Michael Ibonye"
-            style={photo}
+            className="photo"
           />
         </div>
       </section>
 
-      {/* ── Impact Metrics Strip ───────────────────────────────────────────── */}
-      <section style={metricsStrip}>
-        {[
-          { number: "$18.5M", label: "Cost Savings Delivered" },
-          { number: "9%",    label: "Revenue Growth Enabled" },
-          { number: "10+",   label: "Years of Strategy Experience" },
-        ].map(({ number, label }, i, arr) => (
-          <div key={label} style={metricGroup}>
-            <div style={metricItem}>
-              <span style={metricNumber}>{number}</span>
-              <span style={metricLabel}>{label}</span>
-            </div>
-            {i < arr.length - 1 && <div style={metricDivider} />}
-          </div>
-        ))}
+      <section className="metrics-strip">
+        <div className="metric-item">
+          <span>$18.5M</span>
+          <p>Cost Savings Delivered</p>
+        </div>
+        <div className="metric-item">
+          <span>9%</span>
+          <p>Revenue Growth Enabled</p>
+        </div>
+        <div className="metric-item">
+          <span>10+</span>
+          <p>Years of Strategy Experience</p>
+        </div>
       </section>
 
-      {/* ── Consulting Teaser ─────────────────────────────────────────────── */}
-      <section style={consultingTeaser}>
-        <div style={teaserInner}>
-          <span style={teaserBadge}>Available for Consulting Engagements</span>
-          <p style={teaserText}>
+      <section className="consulting-teaser">
+        <div className="teaser-content">
+          <span>Available for Consulting Engagements</span>
+          <p>
             Working with growth-stage companies and leadership teams on strategy,
             operating model design, and business transformation.
           </p>
-          <a href="/contact" style={teaserCta}>Start a conversation →</a>
         </div>
+        <a href="/contact">Start a conversation →</a>
       </section>
 
-      {/* ── Credential Bar ────────────────────────────────────────────────── */}
-      <section style={credentialBar}>
+      <section className="credential-bar">
         {[
-          { name: "Georgetown MBA", src: "/logos/georgetown.svg"   },
-          { name: "EY-Parthenon",   src: "/logos/ey-parthenon.svg" },
-          { name: "MTN",            src: "/logos/mtn.svg"          },
-          { name: "KPMG",           src: "/logos/kpmg.svg"         },
-          { name: "TSL",            src: "/logos/tsl.svg"          },
+          { name: "Georgetown MBA", src: "/logos/georgetown.svg" },
+          { name: "EY-Parthenon", src: "/logos/ey-parthenon.svg" },
+          { name: "MTN", src: "/logos/mtn.svg" },
+          { name: "KPMG", src: "/logos/kpmg.svg" },
+          { name: "TSL", src: "/logos/tsl.svg" },
         ].map(({ name, src }) => (
-          <div key={name} style={credentialBadge}>
-            <img src={src} alt={name} style={credentialLogo} />
+          <div key={name} className="credential-badge">
+            <img src={src} alt={name} />
           </div>
         ))}
-        <div style={credentialTagline}>
-          Strategy&nbsp;•&nbsp;Transformation&nbsp;•&nbsp;Growth
+
+        <div className="credential-tagline">
+          Strategy • Transformation • Growth
         </div>
       </section>
-
     </main>
   );
 }
 
+const styles = `
+  * {
+    box-sizing: border-box;
+  }
 
-/* ── Styles ──────────────────────────────────────────────────────────────── */
+  html, body {
+    overflow-x: hidden;
+  }
 
-const page = {
-  minHeight: "100vh",
-  background:
-    "radial-gradient(circle at top right, rgba(37,99,235,0.20), transparent 32%), #0b1220",
-  color: "white",
-  fontFamily: "Inter, Arial, sans-serif",
-  padding: "32px 48px 64px",
-};
+  .home-page {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top right, rgba(37,99,235,0.20), transparent 32%), #0b1220;
+    color: white;
+    font-family: Inter, Arial, sans-serif;
+    padding: 32px 48px 64px;
+  }
 
-const nav = {
-  maxWidth: "1180px",
-  margin: "0 auto",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  padding: "8px 0 72px",
-};
+  .nav {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0 72px;
+    gap: 24px;
+  }
 
-const logoStyle = {
-  color: "white",
-  textDecoration: "none",
-  fontSize: "22px",
-  fontWeight: "800",
-  letterSpacing: "-0.03em",
-};
+  .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+  }
 
-const navLinks = {
-  display: "flex",
-  gap: "32px",
-};
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
 
-const navLink = {
-  color: "#cbd5e1",
-  textDecoration: "none",
-  fontSize: "15px",
-  fontWeight: "500",
-};
+  .nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
 
-const hero = {
-  maxWidth: "1180px",
-  margin: "0 auto",
-  display: "grid",
-  gridTemplateColumns: "1.1fr 0.9fr",
-  gap: "72px",
-  alignItems: "center",
-};
+  .hero {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 72px;
+    align-items: center;
+  }
 
-const eyebrow = {
-  color: "#93c5fd",
-  fontSize: "14px",
-  fontWeight: "800",
-  letterSpacing: "0.16em",
-  textTransform: "uppercase",
-  marginBottom: "22px",
-};
+  .eyebrow {
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
 
-const headline = {
-  fontSize: "68px",
-  lineHeight: "0.98",
-  letterSpacing: "-0.055em",
-  maxWidth: "760px",
-  margin: "0 0 32px",
-  color: "#f8fafc",
-};
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    max-width: 760px;
+    margin: 0 0 32px;
+    color: #f8fafc;
+  }
 
-const proofPoints = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "10px",
-  marginBottom: "38px",
-};
+  .proof-points {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 38px;
+  }
 
-const proofLine = {
-  color: "#94a3b8",
-  fontSize: "18px",
-  lineHeight: "1.5",
-  margin: 0,
-};
+  .proof-points p {
+    color: #94a3b8;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-const proofMetric = {
-  color: "#f1f5f9",
-  fontWeight: "700",
-};
+  .proof-points strong {
+    color: #f1f5f9;
+    font-weight: 700;
+  }
 
-const buttonRow = {
-  display: "flex",
-  gap: "16px",
-  flexWrap: "wrap",
-};
+  .button-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 
-const primaryButton = {
-  background: "#f8fafc",
-  color: "#0b1220",
-  padding: "15px 28px",
-  borderRadius: "999px",
-  textDecoration: "none",
-  fontWeight: "800",
-  fontSize: "15px",
-  boxShadow: "0 18px 40px rgba(0,0,0,0.22)",
-};
+  .primary-button,
+  .secondary-button {
+    padding: 15px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 15px;
+  }
 
-const secondaryButton = {
-  border: "1.5px solid rgba(255,255,255,0.65)",
-  background: "rgba(255,255,255,0.07)",
-  color: "#f8fafc",
-  padding: "15px 28px",
-  borderRadius: "999px",
-  textDecoration: "none",
-  fontWeight: "700",
-  fontSize: "15px",
-};
+  .primary-button {
+    background: #f8fafc;
+    color: #0b1220;
+    font-weight: 800;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+  }
 
-const photoWrap = {
-  justifySelf: "end",
-  padding: "12px",
-  borderRadius: "34px",
-  background:
-    "linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04))",
-  boxShadow: "0 30px 90px rgba(0,0,0,0.38)",
-};
+  .secondary-button {
+    border: 1.5px solid rgba(255,255,255,0.65);
+    background: rgba(255,255,255,0.07);
+    color: #f8fafc;
+    font-weight: 700;
+  }
 
-const photo = {
-  width: "390px",
-  maxWidth: "100%",
-  display: "block",
-  borderRadius: "26px",
-};
+  .photo-wrap {
+    justify-self: end;
+    padding: 12px;
+    border-radius: 34px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+    box-shadow: 0 30px 90px rgba(0,0,0,0.38);
+  }
 
-const metricsStrip = {
-  maxWidth: "1180px",
-  margin: "72px auto 0",
-  padding: "40px 48px",
-  background: "rgba(255,255,255,0.04)",
-  border: "1px solid rgba(255,255,255,0.10)",
-  borderRadius: "20px",
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  flexWrap: "wrap",
-  gap: "24px",
-};
+  .photo {
+    width: 390px;
+    max-width: 100%;
+    display: block;
+    border-radius: 26px;
+  }
 
-const metricGroup = {
-  display: "flex",
-  alignItems: "center",
-  gap: "24px",
-  flex: "1 1 auto",
-};
+  .metrics-strip {
+    max-width: 1180px;
+    margin: 72px auto 0;
+    padding: 40px 48px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 
-const metricItem = {
-  display: "flex",
-  flexDirection: "column",
-  gap: "4px",
-  flex: 1,
-};
+  .metric-item span {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
 
-const metricNumber = {
-  fontSize: "36px",
-  fontWeight: "800",
-  color: "#f1f5f9",
-  letterSpacing: "-0.04em",
-  lineHeight: 1,
-};
+  .metric-item p {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 8px 0 0;
+  }
 
-const metricLabel = {
-  fontSize: "13px",
-  color: "#64748b",
-  fontWeight: "600",
-  textTransform: "uppercase",
-  letterSpacing: "0.06em",
-};
+  .consulting-teaser {
+    max-width: 1180px;
+    margin: 24px auto 0;
+    padding: 28px 36px;
+    background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05));
+    border: 1px solid rgba(37,99,235,0.35);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    overflow: hidden;
+  }
 
-const metricDivider = {
-  width: "1px",
-  height: "40px",
-  background: "rgba(255,255,255,0.12)",
-  flexShrink: 0,
-};
+  .teaser-content {
+    min-width: 0;
+  }
 
-const consultingTeaser = {
-  maxWidth: "1180px",
-  margin: "24px auto 0",
-  padding: "28px 36px",
-  background:
-    "linear-gradient(135deg, rgba(37,99,235,0.15), rgba(37,99,235,0.05))",
-  border: "1px solid rgba(37,99,235,0.35)",
-  borderRadius: "16px",
-};
+  .consulting-teaser span {
+    display: inline-block;
+    max-width: 100%;
+    background: rgba(37,99,235,0.30);
+    color: #93c5fd;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 
-const teaserInner = {
-  display: "flex",
-  alignItems: "center",
-  gap: "24px",
-  flexWrap: "wrap",
-};
+  .consulting-teaser p {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
 
-const teaserBadge = {
-  background: "rgba(37,99,235,0.30)",
-  color: "#93c5fd",
-  fontSize: "12px",
-  fontWeight: "800",
-  letterSpacing: "0.10em",
-  textTransform: "uppercase",
-  padding: "6px 14px",
-  borderRadius: "999px",
-  whiteSpace: "nowrap",
-  flexShrink: 0,
-};
+  .consulting-teaser a {
+    color: #93c5fd;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-const teaserText = {
-  color: "#94a3b8",
-  fontSize: "15px",
-  lineHeight: "1.6",
-  flex: 1,
-  margin: 0,
-};
+  .credential-bar {
+    max-width: 1180px;
+    margin: 48px auto 0;
+    padding: 24px 0 0;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
 
-const teaserCta = {
-  color: "#93c5fd",
-  fontSize: "14px",
-  fontWeight: "700",
-  textDecoration: "none",
-  whiteSpace: "nowrap",
-  flexShrink: 0,
-};
+  .credential-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 8px 16px;
+    max-width: 100%;
+  }
 
-const credentialBar = {
-  maxWidth: "1180px",
-  margin: "48px auto 0",
-  padding: "24px 0 0",
-  borderTop: "1px solid rgba(255,255,255,0.10)",
-  display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  flexWrap: "wrap",
-};
+  .credential-badge img {
+    height: 18px;
+    max-width: 110px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+  }
 
-const credentialBadge = {
-  background: "rgba(255,255,255,0.06)",
-  border: "1px solid rgba(255,255,255,0.12)",
-  borderRadius: "8px",
-  padding: "8px 16px",
-};
+  .credential-tagline {
+    margin-left: auto;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    max-width: 100%;
+  }
 
-const credentialLogo = {
-  height: "18px",
-  width: "auto",
-  display: "block",
-  filter: "brightness(0) invert(1)",
-  opacity: 0.55,
-};
+  @media (max-width: 900px) {
+    .home-page {
+      padding: 24px 20px 48px;
+    }
 
-const credentialTagline = {
-  marginLeft: "auto",
-  color: "#475569",
-  fontSize: "13px",
-  fontWeight: "600",
-  letterSpacing: "0.08em",
-};
+    .nav {
+      padding-bottom: 48px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .nav-links {
+      gap: 18px;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .photo-wrap {
+      justify-self: start;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .photo {
+      width: 100%;
+    }
+
+    .metrics-strip {
+      grid-template-columns: 1fr;
+      padding: 28px;
+      margin-top: 48px;
+    }
+
+    .consulting-teaser {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px;
+      width: 100%;
+    }
+
+    .consulting-teaser a {
+      white-space: normal;
+    }
+
+    .credential-bar {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .credential-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .credential-tagline {
+      grid-column: 1 / -1;
+      margin-left: 0;
+      text-align: left;
+      line-height: 1.5;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .home-page {
+      padding: 22px 16px 44px;
+    }
+
+    .logo {
+      font-size: 20px;
+    }
+
+    .nav-links {
+      gap: 12px 16px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .hero h1 {
+      font-size: 39px;
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+    }
+
+    .proof-points p {
+      font-size: 16px;
+    }
+
+    .button-row a {
+      width: 100%;
+      text-align: center;
+    }
+
+    .metrics-strip {
+      padding: 24px;
+    }
+
+    .metric-item span {
+      font-size: 32px;
+    }
+
+    .consulting-teaser span {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      line-height: 1.4;
+      border-radius: 14px;
+    }
+
+    .credential-bar {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .credential-badge {
+      padding: 10px 12px;
+    }
+
+    .credential-badge img {
+      max-width: 96px;
+    }
+  }
+`;
