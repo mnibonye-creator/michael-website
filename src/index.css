@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #0b1220;
+}
+
+a {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.78;
+}
+
+article {
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+article:hover {
+  transform: translateY(-3px);
+  border-color: rgba(147, 197, 253, 0.32) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.095),
+    rgba(255, 255, 255, 0.04)
+  ) !important;
+}
+
+::selection {
+  background: #93c5fd;
+  color: #0b1220;
+}
+a:hover {
+  transform: translateY(-1px);
+}
+
+button:hover,
+a[style*="background"] {
+  transform: translateY(-2px);
+}
